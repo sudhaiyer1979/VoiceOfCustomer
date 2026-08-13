@@ -1,0 +1,157 @@
+{
+  "hidden_strengths": [
+    {
+      "theme_id": "T003",
+      "theme": "Playing with friends and rare friendliness",
+      "sentiment": "mixed",
+      "mention_count": 69,
+      "evidence_review_ids": [
+        "232653228",
+        "232371000",
+        "232469294",
+        "232699755",
+        "232696037"
+      ],
+      "evidence_quote": "Friendly community, smooth performance, and a chill environment.",
+      "praise_signal": "chill",
+      "marketing_coverage_ratio": 0.2,
+      "marketing_coverage": "minimal",
+      "closest_marketing_claim_ids": [
+        "M008",
+        "M035"
+      ],
+      "rationale": "Players praise this ('chill' in a review quote) and it comes up in 69 reviews, but only claim(s) M008, M035 touch it in passing (20% vocabulary overlap)."
+    },
+    {
+      "theme_id": "T006",
+      "theme": "Toxic community and verbal abuse",
+      "sentiment": "mixed",
+      "mention_count": 48,
+      "evidence_review_ids": [
+        "232600287",
+        "232554701",
+        "232189248",
+        "232696037",
+        "232692260"
+      ],
+      "evidence_quote": "Not to become Unhinged/toxic but how to deal with other players, I always played Solo (still to this day) and now i perform and interact with the world flawlessly.",
+      "praise_signal": "flawlessly",
+      "marketing_coverage_ratio": 0.09,
+      "marketing_coverage": "minimal",
+      "closest_marketing_claim_ids": [
+        "M008"
+      ],
+      "rationale": "Players praise this ('flawlessly' in a review quote) and it comes up in 48 reviews, but only claim(s) M008 touch it in passing (9% vocabulary overlap)."
+    },
+    {
+      "theme_id": "T007",
+      "theme": "Choosing a server and dealing with admins",
+      "sentiment": "negative",
+      "mention_count": 45,
+      "evidence_review_ids": [
+        "232220260",
+        "232252737",
+        "232226244",
+        "232688856",
+        "232686990"
+      ],
+      "evidence_quote": "i joined a 100000000 times server got a ak and felt like a little boy in iran 100% worth",
+      "praise_signal": "worth",
+      "marketing_coverage_ratio": 0.2,
+      "marketing_coverage": "minimal",
+      "closest_marketing_claim_ids": [
+        "M009"
+      ],
+      "rationale": "Players praise this ('worth' in a review quote) and it comes up in 45 reviews, but only claim(s) M009 touch it in passing (20% vocabulary overlap)."
+    },
+    {
+      "theme_id": "T009",
+      "theme": "Performance, crashes and optimization",
+      "sentiment": "negative",
+      "mention_count": 42,
+      "evidence_review_ids": [
+        "232608087",
+        "232449613",
+        "232305438",
+        "232697182",
+        "232686756"
+      ],
+      "evidence_quote": "It is not ideal, as on the lowest settings i get around 20 fps tops, with loads of lag and some annoying little things due to the low tier of mac, but it is still playable.",
+      "praise_signal": "playable",
+      "marketing_coverage_ratio": 0.14,
+      "marketing_coverage": "minimal",
+      "closest_marketing_claim_ids": [
+        "M005",
+        "M018"
+      ],
+      "rationale": "Players praise this ('playable' in a review quote) and it comes up in 42 reviews, but only claim(s) M005, M018 touch it in passing (14% vocabulary overlap)."
+    },
+    {
+      "theme_id": "T011",
+      "theme": "Solo players versus groups and zergs",
+      "sentiment": "negative",
+      "mention_count": 35,
+      "evidence_review_ids": [
+        "232581549",
+        "232393727",
+        "232256398",
+        "232694761",
+        "232659347"
+      ],
+      "evidence_quote": "What I love most about Rust is how many different ways there are to play, which opens up so much room for creativity\u2014whether you\u2019re a pure solo, a small group, or part of a bigger clan.",
+      "praise_signal": "love",
+      "marketing_coverage_ratio": 0.2,
+      "marketing_coverage": "minimal",
+      "closest_marketing_claim_ids": [
+        "M005",
+        "M008",
+        "M017",
+        "M022",
+        "M036"
+      ],
+      "rationale": "Players praise this ('love' in a review quote) and it comes up in 35 reviews, but only claim(s) M005, M008, M017, M022, M036 touch it in passing (20% vocabulary overlap)."
+    }
+  ],
+  "marketing_disconnects": [
+    {
+      "claim_id": "M006",
+      "claim_text": "Keep an eye out for regular seasonal events, as there\u2019s always something interesting or dangerous (or both) happening on the island.",
+      "related_theme_ids": [],
+      "total_related_mentions": 0,
+      "player_discussion": "none",
+      "rationale": "No player review theme shares this claim's vocabulary \u2014 it does not come up in player discussion at all."
+    },
+    {
+      "claim_id": "M010",
+      "claim_text": "Transportation: horses, modular cars, hot air balloons, helicopters, bikes, trains, boats, and more",
+      "related_theme_ids": [],
+      "total_related_mentions": 0,
+      "player_discussion": "none",
+      "rationale": "No player review theme shares this claim's vocabulary \u2014 it does not come up in player discussion at all."
+    },
+    {
+      "claim_id": "M021",
+      "claim_text": "2026 New addition: Modular boats, the deep sea, tropical islands, floating cities, and more!",
+      "related_theme_ids": [],
+      "total_related_mentions": 0,
+      "player_discussion": "none",
+      "rationale": "No player review theme shares this claim's vocabulary \u2014 it does not come up in player discussion at all."
+    },
+    {
+      "claim_id": "M026",
+      "claim_text": "Explore the island and its abandoned settlements, mysterious monuments, and the factions that occupy them.",
+      "related_theme_ids": [],
+      "total_related_mentions": 0,
+      "player_discussion": "none",
+      "rationale": "No player review theme shares this claim's vocabulary \u2014 it does not come up in player discussion at all."
+    },
+    {
+      "claim_id": "M019",
+      "claim_text": "Primitive game mode, siege weapons, and vehicles added",
+      "related_theme_ids": [],
+      "total_related_mentions": 0,
+      "player_discussion": "none",
+      "rationale": "No player review theme shares this claim's vocabulary \u2014 it does not come up in player discussion at all."
+    }
+  ]
+}
