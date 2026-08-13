@@ -1,0 +1,640 @@
+{
+  "game_name": "Rust",
+  "review_only_terms": [
+    {
+      "term": "good",
+      "review_count": 117,
+      "example_review_ids": [
+        "232695620",
+        "232693820",
+        "232692145",
+        "232691509",
+        "232690674"
+      ]
+    },
+    {
+      "term": "like",
+      "review_count": 100,
+      "example_review_ids": [
+        "232702388",
+        "232699755",
+        "232696037",
+        "232692260",
+        "232688856"
+      ]
+    },
+    {
+      "term": "fun",
+      "review_count": 87,
+      "example_review_ids": [
+        "232697182",
+        "232678566",
+        "232659347",
+        "232650744",
+        "232635421"
+      ]
+    },
+    {
+      "term": "best",
+      "review_count": 63,
+      "example_review_ids": [
+        "232693632",
+        "232692587",
+        "232680532",
+        "232675079",
+        "232648419"
+      ]
+    },
+    {
+      "term": "time",
+      "review_count": 52,
+      "example_review_ids": [
+        "232694761",
+        "232693632",
+        "232677842",
+        "232675079",
+        "232663677"
+      ]
+    },
+    {
+      "term": "life",
+      "review_count": 50,
+      "example_review_ids": [
+        "232699755",
+        "232675079",
+        "232673950",
+        "232615424",
+        "232589465"
+      ]
+    },
+    {
+      "term": "hours",
+      "review_count": 47,
+      "example_review_ids": [
+        "232699755",
+        "232694761",
+        "232693299",
+        "232686756",
+        "232675079"
+      ]
+    },
+    {
+      "term": "people",
+      "review_count": 43,
+      "example_review_ids": [
+        "232663677",
+        "232633601",
+        "232621974",
+        "232613053",
+        "232598653"
+      ]
+    },
+    {
+      "term": "love",
+      "review_count": 40,
+      "example_review_ids": [
+        "232694862",
+        "232693820",
+        "232685197",
+        "232633263",
+        "232631553"
+      ]
+    },
+    {
+      "term": "recommend",
+      "review_count": 39,
+      "example_review_ids": [
+        "232699755",
+        "232696037",
+        "232694761",
+        "232686917",
+        "232615424"
+      ]
+    },
+    {
+      "term": "great",
+      "review_count": 36,
+      "example_review_ids": [
+        "232702725",
+        "232699021",
+        "232697182",
+        "232686990",
+        "232684544"
+      ]
+    },
+    {
+      "term": "hate",
+      "review_count": 35,
+      "example_review_ids": [
+        "232702725",
+        "232675079",
+        "232654295",
+        "232623894",
+        "232618689"
+      ]
+    },
+    {
+      "term": "bad",
+      "review_count": 34,
+      "example_review_ids": [
+        "232686959",
+        "232686756",
+        "232616196",
+        "232561833",
+        "232555459"
+      ]
+    },
+    {
+      "term": "buy",
+      "review_count": 27,
+      "example_review_ids": [
+        "232702725",
+        "232691233",
+        "232690650",
+        "232642994",
+        "232611645"
+      ]
+    },
+    {
+      "term": "don't",
+      "review_count": 27,
+      "example_review_ids": [
+        "232697182",
+        "232696037",
+        "232694761",
+        "232615424",
+        "232613053"
+      ]
+    },
+    {
+      "term": "nice",
+      "review_count": 23,
+      "example_review_ids": [
+        "232668656",
+        "232621974",
+        "232620920",
+        "232620384",
+        "232613303"
+      ]
+    },
+    {
+      "term": "after",
+      "review_count": 23,
+      "example_review_ids": [
+        "232611006",
+        "232593488",
+        "232589465",
+        "232484927",
+        "232479027"
+      ]
+    },
+    {
+      "term": "before",
+      "review_count": 22,
+      "example_review_ids": [
+        "232692260",
+        "232688856",
+        "232620366",
+        "232593488",
+        "232560146"
+      ]
+    },
+    {
+      "term": "day",
+      "review_count": 21,
+      "example_review_ids": [
+        "232699755",
+        "232673950",
+        "232602116",
+        "232590491",
+        "232581549"
+      ]
+    },
+    {
+      "term": "someone",
+      "review_count": 21,
+      "example_review_ids": [
+        "232699755",
+        "232694761",
+        "232690674",
+        "232686756",
+        "232659347"
+      ]
+    },
+    {
+      "term": "it's",
+      "review_count": 20,
+      "example_review_ids": [
+        "232675079",
+        "232598653",
+        "232526980",
+        "232489305",
+        "232484927"
+      ]
+    },
+    {
+      "term": "beach",
+      "review_count": 20,
+      "example_review_ids": [
+        "232684952",
+        "232665810",
+        "232587400",
+        "232578975",
+        "232554723"
+      ]
+    },
+    {
+      "term": "amazing",
+      "review_count": 20,
+      "example_review_ids": [
+        "232699755",
+        "232685373",
+        "232619829",
+        "232599907",
+        "232581549"
+      ]
+    },
+    {
+      "term": "kill",
+      "review_count": 19,
+      "example_review_ids": [
+        "232686756",
+        "232684952",
+        "232585956",
+        "232573979",
+        "232550766"
+      ]
+    },
+    {
+      "term": "experience",
+      "review_count": 19,
+      "example_review_ids": [
+        "232699755",
+        "232645899",
+        "232630651",
+        "232598653",
+        "232581549"
+      ]
+    }
+  ],
+  "marketing_only_terms": [
+    {
+      "term": "monuments",
+      "marketing_count": 3,
+      "claim_ids": [
+        "M015",
+        "M020",
+        "M026"
+      ]
+    },
+    {
+      "term": "areas",
+      "marketing_count": 2,
+      "claim_ids": [
+        "M013",
+        "M015"
+      ]
+    },
+    {
+      "term": "bases",
+      "marketing_count": 2,
+      "claim_ids": [
+        "M029",
+        "M036"
+      ]
+    },
+    {
+      "term": "boats",
+      "marketing_count": 2,
+      "claim_ids": [
+        "M010",
+        "M021"
+      ]
+    },
+    {
+      "term": "complex",
+      "marketing_count": 2,
+      "claim_ids": [
+        "M014",
+        "M022"
+      ]
+    },
+    {
+      "term": "include",
+      "marketing_count": 2,
+      "claim_ids": [
+        "M005",
+        "M007"
+      ]
+    },
+    {
+      "term": "modular",
+      "marketing_count": 2,
+      "claim_ids": [
+        "M010",
+        "M021"
+      ]
+    },
+    {
+      "term": "regular",
+      "marketing_count": 2,
+      "claim_ids": [
+        "M005",
+        "M006"
+      ]
+    },
+    {
+      "term": "addition",
+      "marketing_count": 2,
+      "claim_ids": [
+        "M005",
+        "M021"
+      ]
+    },
+    {
+      "term": "factions",
+      "marketing_count": 2,
+      "claim_ids": [
+        "M012",
+        "M026"
+      ]
+    },
+    {
+      "term": "vehicles",
+      "marketing_count": 2,
+      "claim_ids": [
+        "M005",
+        "M019"
+      ]
+    },
+    {
+      "term": "happening",
+      "marketing_count": 2,
+      "claim_ids": [
+        "M006",
+        "M036"
+      ]
+    },
+    {
+      "term": "survivors",
+      "marketing_count": 2,
+      "claim_ids": [
+        "M002",
+        "M027"
+      ]
+    },
+    {
+      "term": "mysterious",
+      "marketing_count": 2,
+      "claim_ids": [
+        "M024",
+        "M026"
+      ]
+    },
+    {
+      "term": "transportation",
+      "marketing_count": 2,
+      "claim_ids": [
+        "M010",
+        "M030"
+      ]
+    },
+    {
+      "term": "aim",
+      "marketing_count": 1,
+      "claim_ids": [
+        "M001"
+      ]
+    },
+    {
+      "term": "eye",
+      "marketing_count": 1,
+      "claim_ids": [
+        "M006"
+      ]
+    },
+    {
+      "term": "sea",
+      "marketing_count": 1,
+      "claim_ids": [
+        "M021"
+      ]
+    },
+    {
+      "term": "cars",
+      "marketing_count": 1,
+      "claim_ids": [
+        "M010"
+      ]
+    },
+    {
+      "term": "heat",
+      "marketing_count": 1,
+      "claim_ids": [
+        "M025"
+      ]
+    },
+    {
+      "term": "host",
+      "marketing_count": 1,
+      "claim_ids": [
+        "M009"
+      ]
+    },
+    {
+      "term": "ones",
+      "marketing_count": 1,
+      "claim_ids": [
+        "M033"
+      ]
+    },
+    {
+      "term": "tech",
+      "marketing_count": 1,
+      "claim_ids": [
+        "M030"
+      ]
+    },
+    {
+      "term": "wild",
+      "marketing_count": 1,
+      "claim_ids": [
+        "M020"
+      ]
+    },
+    {
+      "term": "ahead",
+      "marketing_count": 1,
+      "claim_ids": [
+        "M031"
+      ]
+    }
+  ],
+  "same_idea_different_words": [
+    {
+      "concept": "Getting your base raided",
+      "marketing_phrase": "raiding their bases",
+      "player_phrase": "raided",
+      "claim_ids": [
+        "M036"
+      ],
+      "review_ids": [
+        "232219448",
+        "232229679",
+        "232233292",
+        "232273225",
+        "232294029",
+        "232305107",
+        "232307416",
+        "232346714",
+        "232382581",
+        "232387659"
+      ],
+      "player_review_count": 18
+    },
+    {
+      "concept": "Hostile / abusive community",
+      "marketing_phrase": "other survivors",
+      "player_phrase": "toxic",
+      "claim_ids": [
+        "M002",
+        "M027"
+      ],
+      "review_ids": [
+        "232189248",
+        "232208361",
+        "232215722",
+        "232219789",
+        "232305872",
+        "232314214",
+        "232316122",
+        "232388889",
+        "232393727",
+        "232458666"
+      ],
+      "player_review_count": 17
+    },
+    {
+      "concept": "Player-versus-player combat",
+      "marketing_phrase": "prey on them",
+      "player_phrase": "pvp",
+      "claim_ids": [
+        "M036"
+      ],
+      "review_ids": [
+        "232193849",
+        "232208163",
+        "232220260",
+        "232316065",
+        "232319327",
+        "232329241",
+        "232378189",
+        "232464174",
+        "232489305",
+        "232517604"
+      ],
+      "player_review_count": 13
+    },
+    {
+      "concept": "Effort spent earning progress",
+      "marketing_phrase": "hard-won goods",
+      "player_phrase": "grind",
+      "claim_ids": [
+        "M036"
+      ],
+      "review_ids": [
+        "232190822",
+        "232205111",
+        "232209482",
+        "232233292",
+        "232316065",
+        "232382581",
+        "232437425",
+        "232477775",
+        "232613053",
+        "232659347"
+      ],
+      "player_review_count": 11
+    },
+    {
+      "concept": "Compulsive, can't-stop engagement",
+      "marketing_phrase": "last another night",
+      "player_phrase": "addicting",
+      "claim_ids": [
+        "M003"
+      ],
+      "review_ids": [
+        "232245702",
+        "232358969",
+        "232471689",
+        "232615424",
+        "232616196",
+        "232642994"
+      ],
+      "player_review_count": 6
+    },
+    {
+      "concept": "Being killed by others",
+      "marketing_phrase": "be eaten",
+      "player_phrase": "killed",
+      "claim_ids": [
+        "M025"
+      ],
+      "review_ids": [
+        "232208163",
+        "232213824",
+        "232231587",
+        "232233292",
+        "232273225",
+        "232300785",
+        "232319792",
+        "232354603",
+        "232367224",
+        "232388121"
+      ],
+      "player_review_count": 18
+    },
+    {
+      "concept": "Losing everything on a server reset",
+      "marketing_phrase": "last another night",
+      "player_phrase": "wipe",
+      "claim_ids": [
+        "M003"
+      ],
+      "review_ids": [
+        "232189248",
+        "232191164",
+        "232208163",
+        "232256398",
+        "232314977",
+        "232319792",
+        "232358969",
+        "232382581",
+        "232388889",
+        "232422362"
+      ],
+      "player_review_count": 20
+    },
+    {
+      "concept": "Starting out defenceless",
+      "marketing_phrase": "armed only with a rock",
+      "player_phrase": "spawn",
+      "claim_ids": [
+        "M024"
+      ],
+      "review_ids": [
+        "232190107",
+        "232196704",
+        "232201063",
+        "232203029",
+        "232208163",
+        "232208690",
+        "232210557",
+        "232233292",
+        "232253950",
+        "232265753"
+      ],
+      "player_review_count": 29
+    }
+  ]
+}
