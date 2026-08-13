@@ -448,7 +448,7 @@ async function testConnection(slot) {
   statusEl.textContent = 'Testing...';
   statusEl.className = 'conn-status pending';
   try {
-    const result = await callModel(cfg, 'Reply with exactly one word: OK');
+    const result = await callModel(cfg, 'Reply with exactly one word: OK', false);
     if (result.error) throw new Error(result.error);
     statusEl.textContent = 'Connected (replied: "' + result.raw.slice(0, 40) + '")';
     statusEl.className = 'conn-status ok';
@@ -494,11 +494,11 @@ function extractJson(text) {
   return JSON.parse(match[0]);
 }
 
-async function callModel(cfg, prompt) {
+async function callModel(cfg, prompt, forceJson = true) {
   try {
     let raw;
     if (cfg.provider === 'openai') {
-      raw = await callOpenAICompatible('https://api.openai.com/v1/chat/completions', cfg, prompt, true);
+      raw = await callOpenAICompatible('https://api.openai.com/v1/chat/completions', cfg, prompt, forceJson);
     } else if (cfg.provider === 'openrouter') {
       raw = await callOpenAICompatible('https://openrouter.ai/api/v1/chat/completions', cfg, prompt, false);
     } else if (cfg.provider === 'anthropic') {
