@@ -1,0 +1,343 @@
+{
+  "game_name": "Rust",
+  "source_url": "https://store.steampowered.com/app/252490",
+  "review_count": 999,
+  "themes": [
+    {
+      "theme_id": "T001",
+      "theme": "Constant PvP death and fresh-spawn kills",
+      "sentiment": "mixed",
+      "mention_count": 117,
+      "keywords": [
+        "naked",
+        "beach",
+        "kill",
+        "rock",
+        "killed",
+        "die",
+        "spawn",
+        "pvp"
+      ],
+      "example_review_ids": [
+        "232300785",
+        "232686756",
+        "232233292",
+        "232697182",
+        "232696037"
+      ],
+      "quotes": [
+        "A naked comes over and starts bashing me with a rock.",
+        "Get absolutely destroyed by a naked with a rock.",
+        "spawn in, get enslaved bye Russians and forced to work, die, spawn in, go inland, get killed by a bear, spawn on beach again, spend hours grinding to put up a base, get offline raided, repeat, i would not recommend this game unless you are mentally well."
+      ]
+    },
+    {
+      "theme_id": "T002",
+      "theme": "Time sink that takes over your life",
+      "sentiment": "negative",
+      "mention_count": 115,
+      "keywords": [
+        "hours",
+        "hour",
+        "addicted",
+        "addicting",
+        "wipe",
+        "day",
+        "wood",
+        "sleeping"
+      ],
+      "example_review_ids": [
+        "232208163",
+        "232388889",
+        "232219296",
+        "232699755",
+        "232694761"
+      ],
+      "quotes": [
+        "Door camp someone for 3 hours, then complain when they door camp you.",
+        "I shouldn't have to spend 10 hours to build a base, just for it to be torn down in 15 seconds by no-lifes who have rocket launchers 4 hours after wipe, when I don't even have enough cloth to make clothes or low grade fuel to make a furnace.",
+        "played for 14 hours it was good but like half of the 14 hours i was dead"
+      ]
+    },
+    {
+      "theme_id": "T003",
+      "theme": "Playing with friends and rare friendliness",
+      "sentiment": "mixed",
+      "mention_count": 69,
+      "keywords": [
+        "friends",
+        "community",
+        "friendly",
+        "trust",
+        "friend",
+        "chill",
+        "solo",
+        "pvp"
+      ],
+      "example_review_ids": [
+        "232653228",
+        "232371000",
+        "232469294",
+        "232699755",
+        "232696037"
+      ],
+      "quotes": [
+        "Friendly community, smooth performance, and a chill environment.",
+        "Super fun and chill, best to play with friends. We've just finished our base and immediately our neighbor from a very big clan send us a dozen of rocket launcher as a welcoming home present. What a lovely community!",
+        "Have you ever trusted someone, who you knew nothing about, for them just to completely betray you?"
+      ]
+    },
+    {
+      "theme_id": "T004",
+      "theme": "Base building and engineering",
+      "sentiment": "mixed",
+      "mention_count": 57,
+      "keywords": [
+        "base",
+        "build",
+        "building",
+        "wood",
+        "raided",
+        "door",
+        "built",
+        "finally"
+      ],
+      "example_review_ids": [
+        "232603811",
+        "232633601",
+        "232663677",
+        "232688856",
+        "232686756"
+      ],
+      "quotes": [
+        "The building, crafting, exploration, and PvP all work really well together.",
+        "Congratulations, your base code is now public information.",
+        "This is an awesome game for people that likes to make houses in my opinion I usually use this game to be on my own server and mess around with electrical. I just help my friends time to time when they need to have turrets wired up or anything else like a sorting machine."
+      ]
+    },
+    {
+      "theme_id": "T005",
+      "theme": "Rage, stress and emotional toll",
+      "sentiment": "negative",
+      "mention_count": 52,
+      "keywords": [
+        "rage",
+        "pain",
+        "mental",
+        "miserable",
+        "mentally",
+        "anger",
+        "health",
+        "farm"
+      ],
+      "example_review_ids": [
+        "232191164",
+        "232382581",
+        "232566167",
+        "232702388",
+        "232687991"
+      ],
+      "quotes": [
+        "this game has honestly ruined my life, i have many words for this game that may show how i feel, such as, hatred, sadness, guilt, rage, and happiness now happiness?",
+        "This game is honestly good even tho it made me crash out and cry and break my keyboard it's still a good game so far i got 100 hours and i regret it all but at the same time i really don't.",
+        "Made me want to rip my skin off, the only way to play this game is if your a soulless, dirty, dishonest, slimy, depressed loser with no life, who makes it their mission to make the people with lives outside of this pos game a miserable time and completely unenjoyable."
+      ]
+    },
+    {
+      "theme_id": "T006",
+      "theme": "Toxic community and verbal abuse",
+      "sentiment": "mixed",
+      "mention_count": 48,
+      "keywords": [
+        "toxic",
+        "slurs",
+        "called",
+        "racial",
+        "camp",
+        "door",
+        "built",
+        "killed"
+      ],
+      "example_review_ids": [
+        "232600287",
+        "232554701",
+        "232189248",
+        "232696037",
+        "232692260"
+      ],
+      "quotes": [
+        "This game is cancerous and instead of trying to implement meaningful changes to help take the edge off the toxicity, the developers actively embrace it.",
+        "is a good game to play with friends even if there are some nasty kids there but i like the game",
+        "Not to become Unhinged/toxic but how to deal with other players, I always played Solo (still to this day) and now i perform and interact with the world flawlessly."
+      ]
+    },
+    {
+      "theme_id": "T007",
+      "theme": "Choosing a server and dealing with admins",
+      "sentiment": "negative",
+      "mention_count": 45,
+      "keywords": [
+        "server",
+        "servers",
+        "pay",
+        "official",
+        "modded",
+        "lock",
+        "behind",
+        "skill"
+      ],
+      "example_review_ids": [
+        "232220260",
+        "232252737",
+        "232226244",
+        "232688856",
+        "232686990"
+      ],
+      "quotes": [
+        "(This is at least in my experience in official and 2x servers) Are there any good pve servers that aren't modded to where it doesn't feel like vanilla Rust anymore?",
+        "it is near impossible to join a server to play would not recommend to anyone",
+        "i joined a 100000000 times server got a ak and felt like a little boy in iran 100% worth"
+      ]
+    },
+    {
+      "theme_id": "T008",
+      "theme": "Survival, hunger and the environment",
+      "sentiment": "mixed",
+      "mention_count": 44,
+      "keywords": [
+        "survival",
+        "food",
+        "night",
+        "bear",
+        "survive",
+        "stone",
+        "craft",
+        "battle"
+      ],
+      "example_review_ids": [
+        "232229872",
+        "232620366",
+        "232204965",
+        "232675079",
+        "232668656"
+      ],
+      "quotes": [
+        "LOVE THIS GAME. I have died to so many animals but it is so worth it. i would die a million times to all kinds of animals if it meant I would continue playing this game forever. Discovered I am the hunter AND the gatherer. 10/10",
+        "best game ever its like iran u can find an ak on the ground before food or water",
+        "I found an ak before i found food. i feel like a hungry kid in iraq. i recomend this game"
+      ]
+    },
+    {
+      "theme_id": "T009",
+      "theme": "Performance, crashes and optimization",
+      "sentiment": "negative",
+      "mention_count": 42,
+      "keywords": [
+        "loading",
+        "fps",
+        "crashes",
+        "graphics",
+        "crash",
+        "load",
+        "settings",
+        "performance"
+      ],
+      "example_review_ids": [
+        "232608087",
+        "232449613",
+        "232305438",
+        "232697182",
+        "232686756"
+      ],
+      "quotes": [
+        "It is not ideal, as on the lowest settings i get around 20 fps tops, with loads of lag and some annoying little things due to the low tier of mac, but it is still playable.",
+        "my pc used to be able to run this i lowered my graphics now it cant.",
+        "Good game but takes too much loading in with my pc and it crashes"
+      ]
+    },
+    {
+      "theme_id": "T010",
+      "theme": "Getting raided and losing everything",
+      "sentiment": "mixed",
+      "mention_count": 41,
+      "keywords": [
+        "raided",
+        "offline",
+        "raid",
+        "loot",
+        "door",
+        "base",
+        "raiding",
+        "grinding"
+      ],
+      "example_review_ids": [
+        "232600192",
+        "232489305",
+        "232307756",
+        "232699755",
+        "232684952"
+      ],
+      "quotes": [
+        "Rust is a really fun game, especially if you like PvP, raiding, and building.",
+        "Without the depth of interaction, it leads to a gameplay loop that requires significant time investment, just to be offline raided.",
+        "DO NOT OFFLINE RAID IF YOU DO I WILL COME AFTER YOU"
+      ]
+    },
+    {
+      "theme_id": "T011",
+      "theme": "Solo players versus groups and zergs",
+      "sentiment": "negative",
+      "mention_count": 35,
+      "keywords": [
+        "solo",
+        "clan",
+        "team",
+        "alone",
+        "group",
+        "clans",
+        "progress",
+        "map"
+      ],
+      "example_review_ids": [
+        "232581549",
+        "232393727",
+        "232256398",
+        "232694761",
+        "232659347"
+      ],
+      "quotes": [
+        "What I love most about Rust is how many different ways there are to play, which opens up so much room for creativity—whether you’re a pure solo, a small group, or part of a bigger clan.",
+        "Or do you try to find some team to take you in?",
+        "clans dominate, the game is not solo friendly at all but can be fun at the start fo a wipe then no more."
+      ]
+    },
+    {
+      "theme_id": "T012",
+      "theme": "Updates and developer support",
+      "sentiment": "negative",
+      "mention_count": 34,
+      "keywords": [
+        "facepunch",
+        "updates",
+        "devs",
+        "support",
+        "developers",
+        "update",
+        "fix",
+        "behavior"
+      ],
+      "example_review_ids": [
+        "232506960",
+        "232402595",
+        "232356762",
+        "232693820",
+        "232686990"
+      ],
+      "quotes": [
+        "lazy bum devs that focus on making money from skins rather then actually fixing and polishing the game",
+        "Such a bad company add proton support easy anticheat is linux compatable. 4 months ago i can now no longer play on linux, I had respect for facepunch devs but now FO. Useless company. will be asking for refund they do not deserve a penny anymore.",
+        "Facepunch has stopped all support for Linux and only supports Winslop."
+      ]
+    }
+  ]
+}
