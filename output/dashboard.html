@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rust - Voice of Customer vs Marketing</title>
+<style>
+
+    :root {
+      --bg: #0f172a;
+      --panel: #16213c;
+      --panel-alt: #1c2846;
+      --text: #f4f6fb;
+      --text-dim: #b7c0d8;
+      --accent: #5eead4;
+      --accent-strong: #2dd4bf;
+      --warn: #fbbf24;
+      --bad: #fb7185;
+      --good: #34d399;
+      --mixed: #fbbf24;
+      --border: #2c3a5e;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 32px 100px;
+    }
+    header.hero {
+      text-align: center;
+      padding: 56px 24px 48px;
+      border-bottom: 4px solid var(--accent-strong);
+      margin-bottom: 48px;
+    }
+    header.hero h1 {
+      font-size: 3rem;
+      margin: 0 0 12px;
+      letter-spacing: 0.5px;
+    }
+    header.hero .subtitle {
+      font-size: 1.4rem;
+      color: var(--text-dim);
+      margin: 0;
+    }
+    nav.toc {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    nav.toc a {
+      color: var(--bg);
+      background: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 1rem;
+    }
+    nav.toc a:hover { background: var(--accent-strong); }
+
+    section {
+      margin-bottom: 64px;
+    }
+    section h2 {
+      font-size: 2.2rem;
+      margin: 0 0 8px;
+      border-left: 8px solid var(--accent-strong);
+      padding-left: 16px;
+    }
+    .section-sub {
+      color: var(--text-dim);
+      font-size: 1.15rem;
+      margin: 0 0 28px;
+      padding-left: 24px;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .stat-tile {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 24px;
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 3.4rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .stat-label {
+      font-size: 1.2rem;
+      color: var(--text-dim);
+      margin-top: 8px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    .card-meta {
+      color: var(--text-dim);
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    .pill {
+      flex-shrink: 0;
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .pill-strength { background: rgba(52, 211, 153, 0.18); color: var(--good); }
+    .pill-disconnect { background: rgba(251, 113, 133, 0.18); color: var(--bad); }
+    .sentiment-positive { background: rgba(52, 211, 153, 0.18); color: var(--good); }
+    .sentiment-negative { background: rgba(251, 113, 133, 0.18); color: var(--bad); }
+    .sentiment-mixed { background: rgba(251, 191, 36, 0.18); color: var(--mixed); }
+
+    blockquote {
+      margin: 12px 0 0;
+      padding: 12px 16px;
+      border-left: 4px solid var(--accent-strong);
+      background: var(--panel-alt);
+      font-style: italic;
+      font-size: 1.05rem;
+      border-radius: 6px;
+    }
+
+    .vocab-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .vocab-col h3 {
+      font-size: 1.3rem;
+      margin-bottom: 14px;
+    }
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .chip {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    .chip em {
+      font-style: normal;
+      opacity: 0.75;
+      font-weight: 400;
+      font-size: 0.9rem;
+    }
+    .chip-review { background: rgba(94, 234, 212, 0.15); color: var(--accent); border: 1px solid rgba(94, 234, 212, 0.4); }
+    .chip-marketing { background: rgba(251, 191, 36, 0.15); color: var(--warn); border: 1px solid rgba(251, 191, 36, 0.4); }
+
+    .table-heading {
+      font-size: 1.3rem;
+      margin: 8px 0 14px;
+    }
+    table.idea-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--panel);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    table.idea-table th, table.idea-table td {
+      text-align: left;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.05rem;
+    }
+    table.idea-table th {
+      background: var(--panel-alt);
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-dim);
+    }
+    .lang-marketing { color: var(--warn); }
+    .lang-player { color: var(--accent); }
+
+    .quote-block {
+      margin-bottom: 28px;
+    }
+    .quote-block h3 {
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+    .quote-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .quote-list li {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent-strong);
+      border-radius: 10px;
+      padding: 16px 20px;
+      font-size: 1.1rem;
+      font-style: italic;
+    }
+
+    .empty { color: var(--text-dim); font-style: italic; }
+
+    footer {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      html, body { font-size: 17px; }
+      header.hero h1 { font-size: 2.2rem; }
+    }
+
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <h1>Rust &mdash; Voice of Customer vs Marketing</h1>
+      <p class="subtitle">What players actually say, compared with what marketing actually claims.</p>
+      <nav class="toc">
+        <a href="#hidden-strengths">Hidden Strengths</a>
+        <a href="#marketing-disconnects">Marketing Disconnects</a>
+        <a href="#vocabulary">Vocabulary</a>
+        <a href="#themes">Player Themes</a>
+        <a href="#quotes">Player Quotes</a>
+      </nav>
+    </header>
+
+    
+    <section class="summary">
+      <div class="stat-grid">
+        <div class="stat-tile">
+          <div class="stat-number">1,000</div>
+          <div class="stat-label">Player Reviews Analyzed</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-number">36</div>
+          <div class="stat-label">Marketing Claims Analyzed</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-number">12</div>
+          <div class="stat-label">Major Player Themes Found</div>
+        </div>
+      </div>
+    </section>
+    
+
+    <section id="hidden-strengths">
+      <h2>What Players Value That Marketing Misses</h2>
+      <p class="section-sub">Themes players bring up often and praise, but that marketing barely mentions.</p>
+      <div class="card-grid">
+        
+        <div class="card strength-card">
+          <div class="card-header">
+            <span class="card-title">Playing with friends and rare friendliness</span>
+            <span class="pill pill-strength">69 mentions</span>
+          </div>
+          <div class="card-meta">Marketing coverage: <strong>minimal</strong></div>
+          <blockquote>&ldquo;Friendly community, smooth performance, and a chill environment.&rdquo;</blockquote>
+        </div>
+        
+
+        <div class="card strength-card">
+          <div class="card-header">
+            <span class="card-title">Toxic community and verbal abuse</span>
+            <span class="pill pill-strength">48 mentions</span>
+          </div>
+          <div class="card-meta">Marketing coverage: <strong>minimal</strong></div>
+          <blockquote>&ldquo;Not to become Unhinged/toxic but how to deal with other players, I always played Solo (still to this day) and now i perform and interact with the world flawlessly.&rdquo;</blockquote>
+        </div>
+        
+
+        <div class="card strength-card">
+          <div class="card-header">
+            <span class="card-title">Choosing a server and dealing with admins</span>
+            <span class="pill pill-strength">45 mentions</span>
+          </div>
+          <div class="card-meta">Marketing coverage: <strong>minimal</strong></div>
+          <blockquote>&ldquo;i joined a 100000000 times server got a ak and felt like a little boy in iran 100% worth&rdquo;</blockquote>
+        </div>
+        
+
+        <div class="card strength-card">
+          <div class="card-header">
+            <span class="card-title">Performance, crashes and optimization</span>
+            <span class="pill pill-strength">42 mentions</span>
+          </div>
+          <div class="card-meta">Marketing coverage: <strong>minimal</strong></div>
+          <blockquote>&ldquo;It is not ideal, as on the lowest settings i get around 20 fps tops, with loads of lag and some annoying little things due to the low tier of mac, but it is still playable.&rdquo;</blockquote>
+        </div>
+        
+
+        <div class="card strength-card">
+          <div class="card-header">
+            <span class="card-title">Solo players versus groups and zergs</span>
+            <span class="pill pill-strength">35 mentions</span>
+          </div>
+          <div class="card-meta">Marketing coverage: <strong>minimal</strong></div>
+          <blockquote>&ldquo;What I love most about Rust is how many different ways there are to play, which opens up so much room for creativity—whether you’re a pure solo, a small group, or part of a bigger clan.&rdquo;</blockquote>
+        </div>
+        
+      </div>
+    </section>
+    
+
+    <section id="marketing-disconnects">
+      <h2>What Marketing Says That Players Rarely Mention</h2>
+      <p class="section-sub">Marketing claims that find little to no echo in player reviews.</p>
+      <div class="card-grid">
+        
+        <div class="card disconnect-card">
+          <div class="card-header">
+            <span class="card-title">Keep an eye out for regular seasonal events, as there’s always something interesting or dangerous (or both) happening on the island.</span>
+            <span class="pill pill-disconnect">M006</span>
+          </div>
+          <div class="card-meta">Player discussion: <strong>none</strong></div>
+        </div>
+        
+
+        <div class="card disconnect-card">
+          <div class="card-header">
+            <span class="card-title">Transportation: horses, modular cars, hot air balloons, helicopters, bikes, trains, boats, and more</span>
+            <span class="pill pill-disconnect">M010</span>
+          </div>
+          <div class="card-meta">Player discussion: <strong>none</strong></div>
+        </div>
+        
+
+        <div class="card disconnect-card">
+          <div class="card-header">
+            <span class="card-title">2026 New addition: Modular boats, the deep sea, tropical islands, floating cities, and more!</span>
+            <span class="pill pill-disconnect">M021</span>
+          </div>
+          <div class="card-meta">Player discussion: <strong>none</strong></div>
+        </div>
+        
+
+        <div class="card disconnect-card">
+          <div class="card-header">
+            <span class="card-title">Explore the island and its abandoned settlements, mysterious monuments, and the factions that occupy them.</span>
+            <span class="pill pill-disconnect">M026</span>
+          </div>
+          <div class="card-meta">Player discussion: <strong>none</strong></div>
+        </div>
+        
+
+        <div class="card disconnect-card">
+          <div class="card-header">
+            <span class="card-title">Primitive game mode, siege weapons, and vehicles added</span>
+            <span class="pill pill-disconnect">M019</span>
+          </div>
+          <div class="card-meta">Player discussion: <strong>none</strong></div>
+        </div>
+        
+      </div>
+    </section>
+    
+
+    <section id="vocabulary">
+      <h2>Marketing Language vs Player Language</h2>
+      <p class="section-sub">The same ideas, described in two very different vocabularies.</p>
+
+      <div class="vocab-columns">
+        <div class="vocab-col">
+          <h3>Words Players Use (Marketing Doesn't)</h3>
+          <div class="chip-row"><span class="chip chip-review">good <em>(117)</em></span>
+<span class="chip chip-review">like <em>(100)</em></span>
+<span class="chip chip-review">fun <em>(87)</em></span>
+<span class="chip chip-review">best <em>(63)</em></span>
+<span class="chip chip-review">time <em>(52)</em></span>
+<span class="chip chip-review">life <em>(50)</em></span>
+<span class="chip chip-review">hours <em>(47)</em></span>
+<span class="chip chip-review">people <em>(43)</em></span>
+<span class="chip chip-review">love <em>(40)</em></span>
+<span class="chip chip-review">recommend <em>(39)</em></span>
+<span class="chip chip-review">great <em>(36)</em></span>
+<span class="chip chip-review">hate <em>(35)</em></span></div>
+        </div>
+        <div class="vocab-col">
+          <h3>Words Marketing Uses (Players Don't)</h3>
+          <div class="chip-row"><span class="chip chip-marketing">monuments <em>(3)</em></span>
+<span class="chip chip-marketing">areas <em>(2)</em></span>
+<span class="chip chip-marketing">bases <em>(2)</em></span>
+<span class="chip chip-marketing">boats <em>(2)</em></span>
+<span class="chip chip-marketing">complex <em>(2)</em></span>
+<span class="chip chip-marketing">include <em>(2)</em></span>
+<span class="chip chip-marketing">modular <em>(2)</em></span>
+<span class="chip chip-marketing">regular <em>(2)</em></span>
+<span class="chip chip-marketing">addition <em>(2)</em></span>
+<span class="chip chip-marketing">factions <em>(2)</em></span>
+<span class="chip chip-marketing">vehicles <em>(2)</em></span>
+<span class="chip chip-marketing">happening <em>(2)</em></span></div>
+        </div>
+      </div>
+
+      <h3 class="table-heading">Same Idea, Different Words</h3>
+      <table class="idea-table">
+        <thead>
+          <tr><th>Concept</th><th>Marketing Says</th><th>Players Say</th></tr>
+        </thead>
+        <tbody>
+          
+        <tr>
+          <td>Getting your base raided</td>
+          <td><span class="lang-marketing">&ldquo;raiding their bases&rdquo;</span></td>
+          <td><span class="lang-player">&ldquo;raided&rdquo;</span></td>
+        </tr>
+        
+
+        <tr>
+          <td>Hostile / abusive community</td>
+          <td><span class="lang-marketing">&ldquo;other survivors&rdquo;</span></td>
+          <td><span class="lang-player">&ldquo;toxic&rdquo;</span></td>
+        </tr>
+        
+
+        <tr>
+          <td>Player-versus-player combat</td>
+          <td><span class="lang-marketing">&ldquo;prey on them&rdquo;</span></td>
+          <td><span class="lang-player">&ldquo;pvp&rdquo;</span></td>
+        </tr>
+        
+
+        <tr>
+          <td>Effort spent earning progress</td>
+          <td><span class="lang-marketing">&ldquo;hard-won goods&rdquo;</span></td>
+          <td><span class="lang-player">&ldquo;grind&rdquo;</span></td>
+        </tr>
+        
+
+        <tr>
+          <td>Compulsive, can&#x27;t-stop engagement</td>
+          <td><span class="lang-marketing">&ldquo;last another night&rdquo;</span></td>
+          <td><span class="lang-player">&ldquo;addicting&rdquo;</span></td>
+        </tr>
+        
+
+        <tr>
+          <td>Being killed by others</td>
+          <td><span class="lang-marketing">&ldquo;be eaten&rdquo;</span></td>
+          <td><span class="lang-player">&ldquo;killed&rdquo;</span></td>
+        </tr>
+        
+
+        <tr>
+          <td>Losing everything on a server reset</td>
+          <td><span class="lang-marketing">&ldquo;last another night&rdquo;</span></td>
+          <td><span class="lang-player">&ldquo;wipe&rdquo;</span></td>
+        </tr>
+        
+
+        <tr>
+          <td>Starting out defenceless</td>
+          <td><span class="lang-marketing">&ldquo;armed only with a rock&rdquo;</span></td>
+          <td><span class="lang-player">&ldquo;spawn&rdquo;</span></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </section>
+    
+
+    <section id="themes">
+      <h2>Major Player Themes</h2>
+      <p class="section-sub">The most common topics players raise across reviews.</p>
+      <div class="card-grid">
+        
+        <div class="card theme-card">
+          <div class="card-header">
+            <span class="card-title">Constant PvP death and fresh-spawn kills</span>
+            <span class="pill sentiment-mixed">mixed</span>
+          </div>
+          <div class="card-meta">117 mentions &middot; keywords: naked, beach, kill, rock, killed, die, spawn, pvp</div>
+        </div>
+        
+
+        <div class="card theme-card">
+          <div class="card-header">
+            <span class="card-title">Time sink that takes over your life</span>
+            <span class="pill sentiment-negative">negative</span>
+          </div>
+          <div class="card-meta">115 mentions &middot; keywords: hours, hour, addicted, addicting, wipe, day, wood, sleeping</div>
+        </div>
+        
+
+        <div class="card theme-card">
+          <div class="card-header">
+            <span class="card-title">Playing with friends and rare friendliness</span>
+            <span class="pill sentiment-mixed">mixed</span>
+          </div>
+          <div class="card-meta">69 mentions &middot; keywords: friends, community, friendly, trust, friend, chill, solo, pvp</div>
+        </div>
+        
+
+        <div class="card theme-card">
+          <div class="card-header">
+            <span class="card-title">Base building and engineering</span>
+            <span class="pill sentiment-mixed">mixed</span>
+          </div>
+          <div class="card-meta">57 mentions &middot; keywords: base, build, building, wood, raided, door, built, finally</div>
+        </div>
+        
+
+        <div class="card theme-card">
+          <div class="card-header">
+            <span class="card-title">Rage, stress and emotional toll</span>
+            <span class="pill sentiment-negative">negative</span>
+          </div>
+          <div class="card-meta">52 mentions &middot; keywords: rage, pain, mental, miserable, mentally, anger, health, farm</div>
+        </div>
+        
+
+        <div class="card theme-card">
+          <div class="card-header">
+            <span class="card-title">Toxic community and verbal abuse</span>
+            <span class="pill sentiment-mixed">mixed</span>
+          </div>
+          <div class="card-meta">48 mentions &middot; keywords: toxic, slurs, called, racial, camp, door, built, killed</div>
+        </div>
+        
+
+        <div class="card theme-card">
+          <div class="card-header">
+            <span class="card-title">Choosing a server and dealing with admins</span>
+            <span class="pill sentiment-negative">negative</span>
+          </div>
+          <div class="card-meta">45 mentions &middot; keywords: server, servers, pay, official, modded, lock, behind, skill</div>
+        </div>
+        
+
+        <div class="card theme-card">
+          <div class="card-header">
+            <span class="card-title">Survival, hunger and the environment</span>
+            <span class="pill sentiment-mixed">mixed</span>
+          </div>
+          <div class="card-meta">44 mentions &middot; keywords: survival, food, night, bear, survive, stone, craft, battle</div>
+        </div>
+        
+
+        <div class="card theme-card">
+          <div class="card-header">
+            <span class="card-title">Performance, crashes and optimization</span>
+            <span class="pill sentiment-negative">negative</span>
+          </div>
+          <div class="card-meta">42 mentions &middot; keywords: loading, fps, crashes, graphics, crash, load, settings, performance</div>
+        </div>
+        
+
+        <div class="card theme-card">
+          <div class="card-header">
+            <span class="card-title">Getting raided and losing everything</span>
+            <span class="pill sentiment-mixed">mixed</span>
+          </div>
+          <div class="card-meta">41 mentions &middot; keywords: raided, offline, raid, loot, door, base, raiding, grinding</div>
+        </div>
+        
+
+        <div class="card theme-card">
+          <div class="card-header">
+            <span class="card-title">Solo players versus groups and zergs</span>
+            <span class="pill sentiment-negative">negative</span>
+          </div>
+          <div class="card-meta">35 mentions &middot; keywords: solo, clan, team, alone, group, clans, progress, map</div>
+        </div>
+        
+
+        <div class="card theme-card">
+          <div class="card-header">
+            <span class="card-title">Updates and developer support</span>
+            <span class="pill sentiment-negative">negative</span>
+          </div>
+          <div class="card-meta">34 mentions &middot; keywords: facepunch, updates, devs, support, developers, update, fix, behavior</div>
+        </div>
+        
+      </div>
+    </section>
+    
+
+    <section id="quotes">
+      <h2>Real Player Quotes</h2>
+      <p class="section-sub">Direct quotes pulled from player reviews, grouped by theme.</p>
+      
+        <div class="quote-block">
+          <h3>Constant PvP death and fresh-spawn kills</h3>
+          <ul class="quote-list">
+            <li>&ldquo;A naked comes over and starts bashing me with a rock.&rdquo;</li>
+<li>&ldquo;Get absolutely destroyed by a naked with a rock.&rdquo;</li>
+<li>&ldquo;spawn in, get enslaved bye Russians and forced to work, die, spawn in, go inland, get killed by a bear, spawn on beach again, spend hours grinding to put up a base, get offline raided, repeat, i would not recommend this game unless you are mentally well.&rdquo;</li>
+          </ul>
+        </div>
+        
+
+        <div class="quote-block">
+          <h3>Time sink that takes over your life</h3>
+          <ul class="quote-list">
+            <li>&ldquo;Door camp someone for 3 hours, then complain when they door camp you.&rdquo;</li>
+<li>&ldquo;I shouldn&#x27;t have to spend 10 hours to build a base, just for it to be torn down in 15 seconds by no-lifes who have rocket launchers 4 hours after wipe, when I don&#x27;t even have enough cloth to make clothes or low grade fuel to make a furnace.&rdquo;</li>
+<li>&ldquo;played for 14 hours it was good but like half of the 14 hours i was dead&rdquo;</li>
+          </ul>
+        </div>
+        
+
+        <div class="quote-block">
+          <h3>Playing with friends and rare friendliness</h3>
+          <ul class="quote-list">
+            <li>&ldquo;Friendly community, smooth performance, and a chill environment.&rdquo;</li>
+<li>&ldquo;Super fun and chill, best to play with friends. We&#x27;ve just finished our base and immediately our neighbor from a very big clan send us a dozen of rocket launcher as a welcoming home present. What a lovely community!&rdquo;</li>
+<li>&ldquo;Have you ever trusted someone, who you knew nothing about, for them just to completely betray you?&rdquo;</li>
+          </ul>
+        </div>
+        
+
+        <div class="quote-block">
+          <h3>Base building and engineering</h3>
+          <ul class="quote-list">
+            <li>&ldquo;The building, crafting, exploration, and PvP all work really well together.&rdquo;</li>
+<li>&ldquo;Congratulations, your base code is now public information.&rdquo;</li>
+<li>&ldquo;This is an awesome game for people that likes to make houses in my opinion I usually use this game to be on my own server and mess around with electrical. I just help my friends time to time when they need to have turrets wired up or anything else like a sorting machine.&rdquo;</li>
+          </ul>
+        </div>
+        
+
+        <div class="quote-block">
+          <h3>Rage, stress and emotional toll</h3>
+          <ul class="quote-list">
+            <li>&ldquo;this game has honestly ruined my life, i have many words for this game that may show how i feel, such as, hatred, sadness, guilt, rage, and happiness now happiness?&rdquo;</li>
+<li>&ldquo;This game is honestly good even tho it made me crash out and cry and break my keyboard it&#x27;s still a good game so far i got 100 hours and i regret it all but at the same time i really don&#x27;t.&rdquo;</li>
+<li>&ldquo;Made me want to rip my skin off, the only way to play this game is if your a soulless, dirty, dishonest, slimy, depressed loser with no life, who makes it their mission to make the people with lives outside of this pos game a miserable time and completely unenjoyable.&rdquo;</li>
+          </ul>
+        </div>
+        
+
+        <div class="quote-block">
+          <h3>Toxic community and verbal abuse</h3>
+          <ul class="quote-list">
+            <li>&ldquo;This game is cancerous and instead of trying to implement meaningful changes to help take the edge off the toxicity, the developers actively embrace it.&rdquo;</li>
+<li>&ldquo;is a good game to play with friends even if there are some nasty kids there but i like the game&rdquo;</li>
+<li>&ldquo;Not to become Unhinged/toxic but how to deal with other players, I always played Solo (still to this day) and now i perform and interact with the world flawlessly.&rdquo;</li>
+          </ul>
+        </div>
+        
+
+        <div class="quote-block">
+          <h3>Choosing a server and dealing with admins</h3>
+          <ul class="quote-list">
+            <li>&ldquo;(This is at least in my experience in official and 2x servers) Are there any good pve servers that aren&#x27;t modded to where it doesn&#x27;t feel like vanilla Rust anymore?&rdquo;</li>
+<li>&ldquo;it is near impossible to join a server to play would not recommend to anyone&rdquo;</li>
+<li>&ldquo;i joined a 100000000 times server got a ak and felt like a little boy in iran 100% worth&rdquo;</li>
+          </ul>
+        </div>
+        
+
+        <div class="quote-block">
+          <h3>Survival, hunger and the environment</h3>
+          <ul class="quote-list">
+            <li>&ldquo;LOVE THIS GAME. I have died to so many animals but it is so worth it. i would die a million times to all kinds of animals if it meant I would continue playing this game forever. Discovered I am the hunter AND the gatherer. 10/10&rdquo;</li>
+<li>&ldquo;best game ever its like iran u can find an ak on the ground before food or water&rdquo;</li>
+<li>&ldquo;I found an ak before i found food. i feel like a hungry kid in iraq. i recomend this game&rdquo;</li>
+          </ul>
+        </div>
+        
+
+        <div class="quote-block">
+          <h3>Performance, crashes and optimization</h3>
+          <ul class="quote-list">
+            <li>&ldquo;It is not ideal, as on the lowest settings i get around 20 fps tops, with loads of lag and some annoying little things due to the low tier of mac, but it is still playable.&rdquo;</li>
+<li>&ldquo;my pc used to be able to run this i lowered my graphics now it cant.&rdquo;</li>
+<li>&ldquo;Good game but takes too much loading in with my pc and it crashes&rdquo;</li>
+          </ul>
+        </div>
+        
+
+        <div class="quote-block">
+          <h3>Getting raided and losing everything</h3>
+          <ul class="quote-list">
+            <li>&ldquo;Rust is a really fun game, especially if you like PvP, raiding, and building.&rdquo;</li>
+<li>&ldquo;Without the depth of interaction, it leads to a gameplay loop that requires significant time investment, just to be offline raided.&rdquo;</li>
+<li>&ldquo;DO NOT OFFLINE RAID IF YOU DO I WILL COME AFTER YOU&rdquo;</li>
+          </ul>
+        </div>
+        
+
+        <div class="quote-block">
+          <h3>Solo players versus groups and zergs</h3>
+          <ul class="quote-list">
+            <li>&ldquo;What I love most about Rust is how many different ways there are to play, which opens up so much room for creativity—whether you’re a pure solo, a small group, or part of a bigger clan.&rdquo;</li>
+<li>&ldquo;Or do you try to find some team to take you in?&rdquo;</li>
+<li>&ldquo;clans dominate, the game is not solo friendly at all but can be fun at the start fo a wipe then no more.&rdquo;</li>
+          </ul>
+        </div>
+        
+
+        <div class="quote-block">
+          <h3>Updates and developer support</h3>
+          <ul class="quote-list">
+            <li>&ldquo;lazy bum devs that focus on making money from skins rather then actually fixing and polishing the game&rdquo;</li>
+<li>&ldquo;Such a bad company add proton support easy anticheat is linux compatable. 4 months ago i can now no longer play on linux, I had respect for facepunch devs but now FO. Useless company. will be asking for refund they do not deserve a penny anymore.&rdquo;</li>
+<li>&ldquo;Facepunch has stopped all support for Linux and only supports Winslop.&rdquo;</li>
+          </ul>
+        </div>
+        
+    </section>
+    
+
+    <footer>
+      Generated entirely from local project data. No external services, network access, or
+      additional files are required to view this report.
+    </footer>
+  </div>
+</body>
+</html>
