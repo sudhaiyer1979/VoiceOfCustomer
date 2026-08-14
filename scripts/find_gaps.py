@@ -253,9 +253,9 @@ def validate_ids(gaps, themes, claims):
 
 
 def main():
-    with THEMES_PATH.open() as f:
+    with THEMES_PATH.open(encoding="utf-8") as f:
         themes_data = json.load(f)
-    with MARKETING_PATH.open() as f:
+    with MARKETING_PATH.open(encoding="utf-8") as f:
         marketing_data = json.load(f)
 
     themes = themes_data["themes"]
@@ -275,7 +275,7 @@ def main():
     validate_ids(gaps, themes, claims)
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    with OUTPUT_PATH.open("w") as f:
+    with OUTPUT_PATH.open("w", encoding="utf-8") as f:
         json.dump(gaps, f, indent=2)
         f.write("\n")
 

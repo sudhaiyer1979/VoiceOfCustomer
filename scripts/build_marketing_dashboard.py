@@ -21,7 +21,7 @@ OUTPUT = ROOT / "output" / "marketing_dashboard.html"
 
 
 def load(name):
-    with (DATA / name).open() as f:
+    with (DATA / name).open(encoding="utf-8") as f:
         return json.load(f)
 
 

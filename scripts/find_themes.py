@@ -317,7 +317,7 @@ def load_reviews(path):
         )
 
     try:
-        with path.open() as f:
+        with path.open(encoding="utf-8") as f:
             payload = json.load(f)
     except json.JSONDecodeError as e:
         raise RuntimeError(f"{path} is not valid JSON: {e}") from e
@@ -672,7 +672,7 @@ def main():
     }
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    with args.output.open("w") as f:
+    with args.output.open("w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
 
     print(f"Analyzed {len(reviews)} real reviews for '{game_name}'")

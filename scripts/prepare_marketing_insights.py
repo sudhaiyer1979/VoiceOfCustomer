@@ -87,7 +87,7 @@ def load(name):
             "(collect_reviews.py, collect_marketing.py, find_themes.py, "
             "find_gaps.py, vocab_gap.py)."
         )
-    with path.open() as f:
+    with path.open(encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -318,7 +318,7 @@ def main():
     }
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    with OUTPUT_PATH.open("w") as f:
+    with OUTPUT_PATH.open("w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
 
     print(f"Generated {len(perceptions)} customer perceptions and {len(recommendations)} recommendations")

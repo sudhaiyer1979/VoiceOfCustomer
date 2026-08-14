@@ -184,7 +184,7 @@ def main():
     }
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    with OUTPUT_PATH.open("w") as f:
+    with OUTPUT_PATH.open("w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
 
     print(f"Collected {len(claims)} real marketing claims for '{args.game_name}' (app_id={app_id})")

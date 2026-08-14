@@ -98,7 +98,7 @@ def check_data_file(rel_path, top_level_fields, list_field, item_fields):
         return "missing", []
 
     try:
-        with path.open() as f:
+        with path.open(encoding="utf-8") as f:
             payload = json.load(f)
     except json.JSONDecodeError as e:
         return "invalid", [f"not valid JSON: {e}"]
