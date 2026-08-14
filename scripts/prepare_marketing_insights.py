@@ -133,6 +133,7 @@ def build_tool():
             "Submit the finished brand perception insights: per-theme "
             "customer perceptions plus a short list of top recommendations."
         ),
+        "strict": True,
         "input_schema": {
             "type": "object",
             "properties": {
@@ -175,6 +176,7 @@ def build_tool():
                             "evidence_quote",
                             "evidence_review_id",
                         ],
+                        "additionalProperties": False,
                     },
                 },
                 "top_recommendations": {
@@ -187,10 +189,12 @@ def build_tool():
                             "detail": {"type": "string"},
                         },
                         "required": ["action", "title", "detail"],
+                        "additionalProperties": False,
                     },
                 },
             },
             "required": ["perceptions", "top_recommendations"],
+            "additionalProperties": False,
         },
     }
 
@@ -224,10 +228,17 @@ def call_claude(context, model):
     raise RuntimeError("Claude did not return structured marketing insights.")
 
 
-def verify(insights, themes_by_id):
+def collapse_whitespace(text):
+    return " ".join((text or "").split())
+
+
+def verify(insights, themes_by_id, reviews_by_id):
     errors = []
 
     for p in insights.get("perceptions", []):
+        if not isinstance(p, dict):
+            errors.append(f"malformed perception entry (expected object, got {type(p).__name__})")
+            continue
         theme_id = p.get("theme_id")
         theme = themes_by_id.get(theme_id)
         if theme is None:
@@ -236,11 +247,21 @@ def verify(insights, themes_by_id):
         if p.get("alignment") not in ALIGNMENTS:
             errors.append(f"{theme_id}: invalid alignment {p.get('alignment')!r}")
 
-        pairs = list(zip(theme.get("quotes", []), theme.get("example_review_ids", [])))
-        if (p.get("evidence_quote"), p.get("evidence_review_id")) not in pairs:
+        review_id = p.get("evidence_review_id")
+        quote = p.get("evidence_quote") or ""
+        if review_id not in theme.get("example_review_ids", []):
             errors.append(
-                f"{theme_id}: evidence_quote/evidence_review_id doesn't match a "
-                "real (quote, review_id) pair for that theme"
+                f"{theme_id}: evidence_review_id {review_id!r} is not one of this "
+                "theme's real example_review_ids"
+            )
+            continue
+        review = reviews_by_id.get(review_id)
+        if review is None:
+            errors.append(f"{theme_id}: evidence_review_id {review_id!r} is not in reviews.json")
+            continue
+        if collapse_whitespace(quote) not in collapse_whitespace(review.get("text", "")):
+            errors.append(
+                f"{theme_id}: evidence_quote is not verbatim text from review {review_id!r}"
             )
 
     for r in insights.get("top_recommendations", []):
@@ -271,7 +292,8 @@ def main():
         sys.exit(1)
 
     themes_by_id = {t["theme_id"]: t for t in themes["themes"]}
-    errors = verify(insights, themes_by_id)
+    reviews_by_id = {r["review_id"]: r for r in reviews["reviews"]}
+    errors = verify(insights, themes_by_id, reviews_by_id)
     if errors:
         print("ERROR: Claude referenced data that doesn't trace back to the source files:", file=sys.stderr)
         for e in errors:

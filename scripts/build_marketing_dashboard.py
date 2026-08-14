@@ -278,7 +278,10 @@ CSS = """
     .perception-col p, .messaging { margin: 0; font-size: 1.02rem; }
     .messaging { font-style: italic; color: var(--accent); }
     .alignment-columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
-    .alignment-col h3 { display: inline-block; margin-bottom: 14px; font-size: 0.95rem; }
+    .alignment-col h3 {
+      display: block; width: 100%; margin: 0 0 14px; font-size: 0.95rem;
+      white-space: normal; line-height: 1.35; text-align: left;
+    }
     .alignment-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
     .alignment-list li {
       background: var(--panel); border: 1px solid var(--border); border-radius: 10px;

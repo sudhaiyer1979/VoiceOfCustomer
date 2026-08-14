@@ -1,0 +1,172 @@
+{
+  "game_name": "Rust",
+  "source_url": "https://store.steampowered.com/app/252490",
+  "app_id": "252490",
+  "model": "claude-sonnet-5",
+  "perceptions": [
+    {
+      "theme_id": "T001",
+      "customer_perception": "Players expect and even embrace brutal, repeated PvP deaths right from spawn, but describe it as demoralizing when it happens over and over with no recourse.",
+      "current_marketing_position": "Marketing does reference danger from 'other survivors' and starting 'armed only with a rock and a torch' (M024, M027), framing death as part of the core survival fantasy.",
+      "alignment": "ALIGNED",
+      "recommended_action": "Keep leaning into the danger-of-other-players fantasy, but pair it with messaging that sets expectations about the learning curve so new players aren't blindsided.",
+      "suggested_messaging": "Every death is a story: even the pros started naked on the beach.",
+      "evidence_quote": "A naked comes over and starts bashing me with a rock.",
+      "evidence_review_id": "232300785",
+      "perception_id": "I001"
+    },
+    {
+      "theme_id": "T002",
+      "customer_perception": "Players see Rust as an all-consuming time investment that can border on unhealthy addiction, with huge effort lost in seconds.",
+      "current_marketing_position": "Marketing hints at this via 'do whatever it takes to last another night' (M003) but never acknowledges the scale of time investment or grind-to-loss ratio.",
+      "alignment": "UNDERREPRESENTED",
+      "recommended_action": "Add honest messaging or onboarding tips about time investment and pacing (e.g., solo/casual server modes, offline protection features) to manage expectations and reduce burnout-driven negative reviews.",
+      "suggested_messaging": "Big risks, bigger stories — but we've got tools to help you play on your own schedule.",
+      "evidence_quote": "I shouldn't have to spend 10 hours to build a base, just for it to be torn down in 15 seconds by no-lifes who have rocket launchers 4 hours after wipe, when I don't even have enough cloth to make clothes or low grade fuel to make a furnace.",
+      "evidence_review_id": "232388889",
+      "perception_id": "I002"
+    },
+    {
+      "theme_id": "T003",
+      "customer_perception": "Playing with friends and the rare moments of genuine community warmth are treasured highlights that keep players attached to the game, despite the harsh world.",
+      "current_marketing_position": "Only touched in passing via 'Cooperate with friends, make alliances' (M035) and server modding support (M008) — a 20% coverage overlap and effectively a hidden strength.",
+      "alignment": "UNDERREPRESENTED",
+      "recommended_action": "Elevate co-op and community stories in marketing creative — testimonials, trailers of friend groups building/surviving together — since this is a strong, underused positive signal.",
+      "suggested_messaging": "Rust is better with friends: build trust, build bases, build memories.",
+      "evidence_quote": "Super fun and chill, best to play with friends. We've just finished our base and immediately our neighbor from a very big clan send us a dozen of rocket launcher as a welcoming home present. What a lovely community!",
+      "evidence_review_id": "232371000",
+      "perception_id": "I003"
+    },
+    {
+      "theme_id": "T004",
+      "customer_perception": "Base building, crafting, and electrical/automation systems are seen as deeply satisfying creative outlets that mesh well with the survival and PvP loop.",
+      "current_marketing_position": "Strongly and accurately marketed via 'Base Building and Raiding' (M011), 'Design and build bases' (M029), and 'Complex electrical, farming, and automation systems' (M014).",
+      "alignment": "ALIGNED",
+      "recommended_action": "Keep current building/engineering marketing as-is; it matches player enthusiasm closely.",
+      "suggested_messaging": "From a single shack to a fortress with automated defenses — build whatever you can imagine.",
+      "evidence_quote": "The building, crafting, exploration, and PvP all work really well together.",
+      "evidence_review_id": "232603811",
+      "perception_id": "I004"
+    },
+    {
+      "theme_id": "T005",
+      "customer_perception": "A notable share of players describe genuine emotional distress, rage, and mental-health strain from the game's punishing loop, beyond typical 'hardcore' framing.",
+      "current_marketing_position": "Marketing does not address this at all; it only implies difficulty via 'everything wants you to die' (M002) without acknowledging the emotional toll players report.",
+      "alignment": "UNDERREPRESENTED",
+      "recommended_action": "Do not market the distress itself, but invest in and message quality-of-life/anti-toxicity features, and moderate messaging tone so it doesn't glamorize the misery some players report.",
+      "suggested_messaging": "Intense by design, but we're building tools to keep the challenge fun, not exhausting.",
+      "evidence_quote": "Made me want to rip my skin off, the only way to play this game is if your a soulless, dirty, dishonest, slimy, depressed loser with no life, who makes it their mission to make the people with lives outside of this pos game a miserable time and completely unenjoyable.",
+      "evidence_review_id": "232566167",
+      "perception_id": "I005"
+    },
+    {
+      "theme_id": "T006",
+      "customer_perception": "Players frequently encounter toxic, abusive behavior including slurs from other players, which is a major undercurrent of the community experience despite occasional praise for friendliness.",
+      "current_marketing_position": "Essentially absent from marketing (only 9% vocabulary overlap with M008); the 'watch out for other survivors' framing glosses over verbal abuse specifically.",
+      "alignment": "UNDERREPRESENTED",
+      "recommended_action": "Add visible messaging about moderation tools, reporting systems, and curated/managed server options to reassure prospective players concerned about toxicity.",
+      "suggested_messaging": "Danger comes from raiders, not hate speech — explore our moderated and community-run server options.",
+      "evidence_quote": "This game is cancerous and instead of trying to implement meaningful changes to help take the edge off the toxicity, the developers actively embrace it.",
+      "evidence_review_id": "232600287",
+      "perception_id": "I006"
+    },
+    {
+      "theme_id": "T007",
+      "customer_perception": "Choosing the right server (official vs modded, PvE vs PvP) is confusing and frustrating, and admin/server quality varies wildly, impacting first impressions.",
+      "current_marketing_position": "Only loosely covered via 'Host your own servers and with server-side modding support' (M009), which doesn't help players choose or understand server types.",
+      "alignment": "UNDERREPRESENTED",
+      "recommended_action": "Add a clear server-selection guide or in-marketing explainer (official vs community, PvE vs PvP, wipe schedules) to reduce onboarding friction highlighted by players.",
+      "suggested_messaging": "Thousands of servers, one perfect fit — find your ideal Rust experience with our server guide.",
+      "evidence_quote": "(This is at least in my experience in official and 2x servers) Are there any good pve servers that aren't modded to where it doesn't feel like vanilla Rust anymore?",
+      "evidence_review_id": "232220260",
+      "perception_id": "I007"
+    },
+    {
+      "theme_id": "T008",
+      "customer_perception": "Survival mechanics like hunger, environment, and wildlife are enjoyed and seen as core to the appeal, even when brutal.",
+      "current_marketing_position": "Well covered by 'brave environmental dangers... build a shelter, eat (or be eaten)' (M025) and the overall SURVIVE pillar (M032).",
+      "alignment": "ALIGNED",
+      "recommended_action": "Keep current survival-focused marketing; it accurately reflects what players enjoy.",
+      "suggested_messaging": "Hunt, gather, and survive against nature itself — the wild island doesn't go easy on anyone.",
+      "evidence_quote": "LOVE THIS GAME. I have died to so many animals but it is so worth it. i would die a million times to all kinds of animals if it meant I would continue playing this game forever. Discovered I am the hunter AND the gatherer. 10/10",
+      "evidence_review_id": "232229872",
+      "perception_id": "I008"
+    },
+    {
+      "theme_id": "T009",
+      "customer_perception": "Performance issues, crashes, and poor optimization (especially on lower-end hardware and Mac/Linux) are a persistent frustration undermining the polished graphics marketing.",
+      "current_marketing_position": "Marketing touts a 'massive recent graphics upgrade and environment overhaul' (M018) without addressing performance/stability concerns raised by many players.",
+      "alignment": "OVEREMPHASIZED",
+      "recommended_action": "Reduce heavy emphasis on graphics-upgrade messaging until optimization improves, or pair it with concrete performance benchmarks/system requirements transparency.",
+      "suggested_messaging": "Stunning visuals, tuned for real-world rigs — see our recommended settings guide for smooth performance.",
+      "evidence_quote": "my pc used to be able to run this i lowered my graphics now it cant.",
+      "evidence_review_id": "232449613",
+      "perception_id": "I009"
+    },
+    {
+      "theme_id": "T010",
+      "customer_perception": "Raiding and losing hard-earned loot (especially offline raiding) is a core love/hate mechanic that defines the endgame tension.",
+      "current_marketing_position": "Directly and accurately marketed: 'raiding their bases and taking their hard-won goods' (M036), 'Base Building and Raiding' (M011).",
+      "alignment": "ALIGNED",
+      "recommended_action": "Keep raiding messaging, but consider highlighting offline-protection or base-defense tools to address the specific pain point of offline raids.",
+      "suggested_messaging": "Defend what's yours, day or night — build defenses that hold even while you're offline.",
+      "evidence_quote": "Without the depth of interaction, it leads to a gameplay loop that requires significant time investment, just to be offline raided.",
+      "evidence_review_id": "232489305",
+      "perception_id": "I010"
+    },
+    {
+      "theme_id": "T011",
+      "customer_perception": "Solo and small-group players feel structurally disadvantaged against large clans/zergs, even though many value the freedom to choose their playstyle.",
+      "current_marketing_position": "Marketing vaguely implies playstyle flexibility through cooperation and alliance language (M035) but doesn't acknowledge the solo-vs-clan balance concern at all.",
+      "alignment": "UNDERREPRESENTED",
+      "recommended_action": "Add messaging or matchmaking/server-tagging features that call out solo-friendly or small-group-friendly servers to support this underserved but vocal segment.",
+      "suggested_messaging": "Solo, duo, or clan — there's a Rust server balanced for your playstyle.",
+      "evidence_quote": "clans dominate, the game is not solo friendly at all but can be fun at the start fo a wipe then no more.",
+      "evidence_review_id": "232256398",
+      "perception_id": "I011"
+    },
+    {
+      "theme_id": "T012",
+      "customer_perception": "Long-time players are frustrated with perceived lazy or misdirected developer priorities, especially around platform support (e.g., Linux) and bug fixes versus cosmetic monetization.",
+      "current_marketing_position": "Marketing heavily promotes update cadence and content volume ('395 content updates', 'guaranteed content patch every month' - M004) but doesn't address platform support or fix prioritization concerns.",
+      "alignment": "OVEREMPHASIZED",
+      "recommended_action": "Reduce pure quantity-of-updates messaging and add transparency around bug-fix priorities and platform support roadmap to rebuild trust.",
+      "suggested_messaging": "More than content drops — real fixes, real platform support, real communication.",
+      "evidence_quote": "Such a bad company add proton support easy anticheat is linux compatable. 4 months ago i can now no longer play on linux, I had respect for facepunch devs but now FO. Useless company. will be asking for refund they do not deserve a penny anymore.",
+      "evidence_review_id": "232402595",
+      "perception_id": "I012"
+    }
+  ],
+  "top_recommendations": [
+    {
+      "action": "ADD",
+      "title": "Spotlight friendship and community moments",
+      "detail": "Players call out chill, friendly moments with friends as a hidden highlight (69 mentions) that's barely marketed. Feature co-op stories and testimonials in trailers and store page to broaden appeal beyond hardcore PvP fans.",
+      "recommendation_id": "R001"
+    },
+    {
+      "action": "ADD",
+      "title": "Provide a clear server-selection guide",
+      "detail": "Confusion over official vs modded, PvE vs PvP, and solo vs clan servers is a recurring pain point (T007, T011). A simple in-store or in-game guide would reduce onboarding friction and negative first impressions.",
+      "recommendation_id": "R002"
+    },
+    {
+      "action": "REDUCE",
+      "title": "Dial back graphics/update-volume bragging until backed by stability",
+      "detail": "Heavy emphasis on '395 updates' and graphics overhauls rings hollow next to persistent crash, performance, and platform-support (Linux) complaints. Pair any such claims with concrete fix/optimization commitments.",
+      "recommendation_id": "R003"
+    },
+    {
+      "action": "REFRAME",
+      "title": "Acknowledge the toll, don't just glamorize the grind",
+      "detail": "Time-sink, rage, and toxicity themes (T002, T005, T006) show real player strain. Reframe messaging away from glorifying addiction toward highlighting quality-of-life tools, moderation, and manageable play options.",
+      "recommendation_id": "R004"
+    },
+    {
+      "action": "KEEP",
+      "title": "Preserve core survival and raiding pillars",
+      "detail": "Base building, raiding, and environmental survival mechanics (T004, T008, T010) are strongly aligned with player sentiment and marketing — continue investing here as the brand's proven core.",
+      "recommendation_id": "R005"
+    }
+  ]
+}
