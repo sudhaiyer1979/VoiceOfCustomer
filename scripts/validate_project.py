@@ -17,6 +17,8 @@ REQUIRED_SCRIPTS = [
     "find_gaps.py",
     "vocab_gap.py",
     "build_dashboard.py",
+    "prepare_marketing_insights.py",
+    "build_marketing_dashboard.py",
     "validate_project.py",
 ]
 
@@ -56,9 +58,24 @@ DATA_FILES = {
         None,
         None,
     ),
+    "data/marketing_insights.json": (
+        ["game_name", "source_url", "app_id", "model", "perceptions", "top_recommendations"],
+        "perceptions",
+        [
+            "perception_id",
+            "theme_id",
+            "customer_perception",
+            "current_marketing_position",
+            "alignment",
+            "recommended_action",
+            "suggested_messaging",
+            "evidence_quote",
+            "evidence_review_id",
+        ],
+    ),
 }
 
-OUTPUT_FILES = ["output/dashboard.html"]
+OUTPUT_FILES = ["output/dashboard.html", "output/marketing_dashboard.html"]
 
 
 def check_directories():

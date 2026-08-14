@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voice of Customer — Brand Perception Analyzer</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --panel: #16213c;
+    --panel-alt: #1c2846;
+    --text: #f4f6fb;
+    --text-dim: #b7c0d8;
+    --accent: #5eead4;
+    --accent-strong: #2dd4bf;
+    --bad: #fb7185;
+    --good: #34d399;
+    --border: #2c3a5e;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg); color: var(--text);
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-size: 18px; line-height: 1.5;
+    min-height: 100vh;
+  }
+  header.hero {
+    text-align: center;
+    padding: 48px 24px 32px;
+    border-bottom: 4px solid var(--accent-strong);
+  }
+  header.hero h1 {
+    font-size: 2.4rem;
+    margin: 0 0 6px;
+    letter-spacing: 0.5px;
+  }
+  header.hero .subtitle {
+    font-size: 1.2rem;
+    color: var(--accent);
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+  .wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 32px 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+  }
+  .panel h2 {
+    margin: 0 0 24px;
+    font-size: 1.4rem;
+    border-left: 6px solid var(--accent-strong);
+    padding-left: 14px;
+  }
+  label {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .field { margin-bottom: 22px; }
+  input[type="text"] {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 1.05rem;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--panel-alt);
+    color: var(--text);
+  }
+  input[type="text"]:focus {
+    outline: none;
+    border-color: var(--accent-strong);
+  }
+  .hint { color: var(--text-dim); font-size: 0.85rem; margin-top: 4px; }
+  button#analyze-btn {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    background: var(--accent);
+    color: var(--bg);
+    cursor: pointer;
+    margin-top: 8px;
+  }
+  button#analyze-btn:hover:not(:disabled) { background: var(--accent-strong); }
+  button#analyze-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .progress-placeholder { color: var(--text-dim); font-style: italic; }
+  .progress-line {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    white-space: pre-wrap;
+    font-size: 1rem;
+  }
+  .progress-line:last-child { border-bottom: none; }
+  .progress-line.done { color: var(--good); }
+  .progress-line.active { color: var(--accent); }
+  .progress-line.error { color: var(--bad); }
+
+  .ready-box {
+    margin-top: 24px;
+    padding: 24px;
+    background: var(--panel-alt);
+    border-radius: 12px;
+    text-align: center;
+  }
+  .ready-box h3 {
+    margin: 0 0 16px;
+    color: var(--good);
+    letter-spacing: 1px;
+  }
+  .ready-box a.view-dashboard {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--accent);
+    color: var(--bg);
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 10px;
+  }
+  .ready-box a.view-dashboard:hover { background: var(--accent-strong); }
+
+  .error-box {
+    margin-top: 24px;
+    padding: 18px;
+    background: rgba(251, 113, 133, 0.12);
+    border: 1px solid rgba(251, 113, 133, 0.4);
+    border-radius: 10px;
+    color: var(--bad);
+  }
+
+  @media (max-width: 860px) {
+    .wrap { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+  <header class="hero">
+    <h1>VOICE OF CUSTOMER</h1>
+    <p class="subtitle">BRAND PERCEPTION ANALYZER</p>
+  </header>
+
+  <div class="wrap">
+    <div class="panel">
+      <h2>Analyze A Game</h2>
+      <form id="analyze-form">
+        <div class="field">
+          <label for="game_name">Game Name</label>
+          <input type="text" id="game_name" name="game_name" placeholder="e.g. Rust" required>
+        </div>
+        <div class="field">
+          <label for="source_url">Source URL <span style="font-weight:400;color:var(--text-dim);">(optional)</span></label>
+          <input type="text" id="source_url" name="source_url" placeholder="https://store.steampowered.com/app/...">
+          <div class="hint">Leave blank and we'll find it on Steam automatically.</div>
+        </div>
+        <button type="submit" id="analyze-btn">Analyze Brand Perception</button>
+      </form>
+    </div>
+
+    <div class="panel">
+      <h2>Analysis Progress</h2>
+      <div id="progress-list">
+        <div class="progress-placeholder">Progress will appear here once you start an analysis.</div>
+      </div>
+      <div id="ready-box" class="ready-box" style="display:none;">
+        <h3>ANALYSIS READY</h3>
+        <a class="view-dashboard" href="/dashboard" target="_blank">View Brand Perception Dashboard</a>
+      </div>
+      <div id="error-box" class="error-box" style="display:none;"></div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('analyze-form');
+    const btn = document.getElementById('analyze-btn');
+    const progressList = document.getElementById('progress-list');
+    const readyBox = document.getElementById('ready-box');
+    const errorBox = document.getElementById('error-box');
+    let pollTimer = null;
+
+    function renderLines(lines, current) {
+      progressList.innerHTML = '';
+      for (const line of lines) {
+        const div = document.createElement('div');
+        div.className = 'progress-line done';
+        div.textContent = line;
+        progressList.appendChild(div);
+      }
+      if (current) {
+        const div = document.createElement('div');
+        div.className = 'progress-line active';
+        div.textContent = current;
+        progressList.appendChild(div);
+      }
+      if (lines.length === 0 && !current) {
+        progressList.innerHTML = '<div class="progress-placeholder">Starting…</div>';
+      }
+    }
+
+    async function poll(jobId) {
+      try {
+        const res = await fetch('/api/status/' + jobId);
+        if (!res.ok) throw new Error('status check failed');
+        const job = await res.json();
+        renderLines(job.lines, job.current);
+
+        if (job.done) {
+          clearInterval(pollTimer);
+          btn.disabled = false;
+          if (job.error) {
+            errorBox.style.display = 'block';
+            errorBox.textContent = job.error;
+          } else {
+            readyBox.style.display = 'block';
+          }
+        }
+      } catch (err) {
+        clearInterval(pollTimer);
+        btn.disabled = false;
+        errorBox.style.display = 'block';
+        errorBox.textContent = 'Lost connection while checking progress. Please try again.';
+      }
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      btn.disabled = true;
+      readyBox.style.display = 'none';
+      errorBox.style.display = 'none';
+      progressList.innerHTML = '<div class="progress-placeholder">Starting…</div>';
+
+      const game_name = document.getElementById('game_name').value.trim();
+      const source_url = document.getElementById('source_url').value.trim();
+
+      try {
+        const res = await fetch('/api/analyze', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ game_name, source_url }),
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          errorBox.style.display = 'block';
+          errorBox.textContent = data.error || 'Could not start analysis.';
+          btn.disabled = false;
+          return;
+        }
+        pollTimer = setInterval(() => poll(data.job_id), 800);
+        poll(data.job_id);
+      } catch (err) {
+        errorBox.style.display = 'block';
+        errorBox.textContent = 'Could not reach the server. Please try again.';
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
